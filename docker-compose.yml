@@ -1,11 +1,17 @@
 version: "3.8"
 
 services:
-  app:
+  frontend:
+    container_name: docker-booksearch-frontend-c
+    image: docker-booksearch-frontend-i
+    build: ./kube-books-fe
+    ports:
+      - 3000:80
+  backend:
     container_name: docker-booksearch-backend-c
     image: docker-booksearch-backend-i
     build:
-      context: .
+      context: ./kube-books-api
     expose:
       - "9000"
     ports:
