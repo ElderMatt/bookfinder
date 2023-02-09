@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: docker-booksearch-backend-c
+    image: docker-booksearch-backend-i
+    build:
+      context: .
+    expose:
+      - "9000"
+    ports:
+      - 9000:9000
+    command: ["node", "dist/bin/www"]
